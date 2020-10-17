@@ -5,8 +5,9 @@ var TokenService = require('../services/tokenService');
 // POST /token
 router.post('/', function(req, res) {
   var identity = req.body.identity;
+  var origin = req.body.origin;
 
-  var token = TokenService.generate(identity)
+  var token = TokenService.generate(identity, origin)
 
   res.json({
     identity: identity,
